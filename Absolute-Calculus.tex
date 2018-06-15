@@ -13,11 +13,12 @@
  bottom=5mm,
  }
  
-\usepackage[subpreambles=true]{standalone}
+%\usepackage[subpreambles=true]{standalone}
  
 \usepackage{amssymb}
 \usepackage[leqno]{amsmath}
 \usepackage{amsfonts}
+\usepackage{mathtools}
 
 \usepackage[symbol]{footmisc}
 \renewcommand*{\thefootnote}{\fnsymbol{footnote}}
@@ -26,7 +27,10 @@
 
 \usepackage{arydshln}
 
-\usepackage[tensors,diffgeo]{../Math-Symbols-List/toninus-math-symbols}
+\usepackage{braket}
+
+	\providecommand{\ExtD}{\textrm{d}}
+	\providecommand{\Lie}{\mathcal{L}}
 %https://tex.stackexchange.com/questions/48980/whole-page-table-with-tabularx
 
 \begin{document}
@@ -130,9 +134,9 @@
 		  \parbox{\textwidth}{
 		  	Extension of operator $\nabla_X$ from $\mathfrak{X}(M)$ to $\Omega^1(M)$ is implemented by:
 		  	\begin{displaymath}
-		  		\left\langle \nabla_X \omega \right\vert \left. Y \right\rangle \coloneqq
-		  		\nabla_X \left\langle  \omega \right\vert \left. Y \right\rangle - 
-		  		\left\langle \omega \right\vert \left. \nabla_X Y \right\rangle
+		  		\braket{ \nabla_X \omega | Y } \coloneqq
+		  		\nabla_X\braket{ \omega | Y} - 
+		  		\braket{ \omega | \nabla_X Y} 
 		  	\end{displaymath}
 		  }
 		}	

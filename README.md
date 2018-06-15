@@ -23,6 +23,7 @@ kit of a differential geometer.
 
 ## TODO
 - [ ] Dedicated sty file including macros for the operator
+- [ ] Setup Overleaf Project (https://www.overleaf.com/help/230-how-do-i-push-a-new-project-to-overleaf-via-git#.WyQAJKczb6Q)
 - [ ] Table including covariant derivative and hodge operators
 - [ ] Generalization of contraction and Lie to Multivector
 - [ ] Fields constitute a lie algebra. Lie algebras determine a chain complex (Eilenberg-Chevalley). -> Relation of generalized operator with EC boundary operator
