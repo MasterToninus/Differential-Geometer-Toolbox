@@ -5,6 +5,9 @@ The plan is to realize a comprehensive collection of basic algebraic relation in
 
 As always... Contributors are welcome!
 
+## Overleaf Version
+https://www.overleaf.com/read/fjxqcdvyqnwt
+
 ## The swiss army knife for differential geometers
 
 > Since the early days of Differential Geometry the importance of formulae that
@@ -23,6 +26,7 @@ kit of a differential geometer.
 
 ## TODO
 - [ ] Dedicated sty file including macros for the operator
+- [x] Setup Overleaf Project (https://www.overleaf.com/help/230-how-do-i-push-a-new-project-to-overleaf-via-git#.WyQAJKczb6Q)
 - [ ] Table including covariant derivative and hodge operators
 - [ ] Generalization of contraction and Lie to Multivector
 - [ ] Fields constitute a lie algebra. Lie algebras determine a chain complex (Eilenberg-Chevalley). -> Relation of generalized operator with EC boundary operator
