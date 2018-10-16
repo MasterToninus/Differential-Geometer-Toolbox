@@ -1,0 +1,84 @@
+\documentclass[a4paper,12pt]{scrartcl}
+\usepackage{pdflscape}
+\usepackage{tabularx}
+\usepackage{array}
+\setlength{\extrarowheight}{6mm}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={185mm,277mm},
+ left=5mm,
+ right=5mm,
+ top=5mm,
+ bottom=5mm,
+ }
+ 
+\usepackage[subpreambles=true]{standalone}
+ 
+\usepackage{amssymb}
+\usepackage[leqno]{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+
+\usepackage[symbol]{footmisc}
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+
+	\renewcommand{\d}{\textrm{d}}
+	\providecommand{\codiff}{\delta}
+	\providecommand{\laplacian}{\Delta}
+	\providecommand{\Lie}{\mathcal{L}}%\pounds
+
+
+%https://tex.stackexchange.com/questions/48980/whole-page-table-with-tabularx
+
+\begin{document}
+  \begin{landscape}
+    \thispagestyle{empty}
+    \noindent
+    \paragraph{EXTENDED CALCULUS (WIP)}
+    	\mbox{}\\
+        $\quad$Suppose $M$ is a smooth manifold, $x^\mu$ a coordinate chart. Denote by $\Omega(M)$ the algebra of differential forms on $M$ and by $\mathfrak{X}(M)$ the $C^\infty(M)$-module of vector fields.  \\
+    \vspace{5mm}
+    \begin{tabularx}{\linewidth}{|c|X|X|c|}
+      \hline
+     	  & $f \in C^\infty(M)$ & $\d x^\mu \in \Omega^1(M)$ & $\omega^{(k)} \wedge \beta$  \\
+      \hline
+      	$\d$ & $\d f = \left(\dfrac{\partial f }{\partial x^\nu} \right) \: \d x^\nu$ & 0 & $\left( \d \omega \right) \wedge \beta + (-)^k \omega \wedge \left( \d\beta \right) $ \\
+      	$\Lie_X$ & $\Lie_X f = X(f) = \left(\dfrac{\partial f }{\partial x^\nu} \right) \: X^\nu$ & $\Lie_X \d x^\mu = \d \left(X^a \partial_a x^\mu\right) =  \d \left(X^a \delta_a^\mu \right) = \d\left(X^\mu\right) = \left(\dfrac{\partial X^\mu}{\partial x^\nu}\right)\d x^\nu$ & $\left( \Lie_X \omega \right) \wedge \beta + \omega \wedge \left(\Lie_X\beta \right)$ \\
+      	$\iota_X$  & $0$ & $\iota_X \d x^\mu = \d x^\mu (X) = X^\mu$ & $\left( \iota_X \omega \right) \wedge \beta + (-)^k \omega \wedge \left( \iota_X\beta \right) $ \\
+      	$g^\ast$  \footnotemark[4]  & $g^\ast \left(f\right) = f \circ g $ & $ g^\ast \left(\d x^\mu \right) = \d\left(x^\mu \circ g \right)$ & $g^\ast\left(\omega\right) \wedge g^\ast \left( \beta \right)$ \\ 
+      	$\ast$ & $\ast f = Vol$ & $\ast \d x^\mu = $  & $ \iota_{\omega^\sharp} \ast \beta$ \\
+      	$\codiff$ & $0$ &  & \\
+      	%& & & & & \\
+      \hline
+    \end{tabularx}
+    
+    \paragraph{SuperAlgebra Relations}
+    	\mbox{}\\
+    \begin{tabularx}{\linewidth}{|c|X|X|X|X|X|X|c|}
+      \hline
+     	  & $\xi' \wedge$ & $\iota_{V'}$ & $\Lie_{V'} $ & $\d$ & $\ast$ & $ \codiff$ & $ \laplacian$ \\
+      \hline
+      	$\xi \wedge$ & ${\xi' \wedge , \xi \wedge} = 0$ &
+      						& & & & & \\
+      	$\iota_{V}$ & & & & & & & \\
+      	$\Lie_{V} $ & & & & & & & \\
+      	$\d$ & & & & & & & \\
+      	$\ast$ & & & & & & & \\
+      	$ \codiff$ & & & & & & & \\
+      	$ \laplacian$ & & & & & & &\\
+      \hline
+    \end{tabularx}
+
+  
+  \end{landscape}
+  
+  \section{Sketchy part}
+  	$$\ast : \omega^p \rightarrow  \omega^{dim(M)-p}$$
+  	defined by linearity since
+  	$$ \alpha = \frac{1}{p!} \alpha_{i_1,\ldots,i_p} \d x^i \wedge \ldots \wedge \d x^i_p \in \Omega^p $$
+  	it is sufficient to say that:
+  	$$ \ast \d x^{i_1} \wedge \ldots \wedge \d x^{i_p} =
+  		\frac{\sqrt{| det(g) |}}{(n-k)!}
+  	$$
+\end{document}
