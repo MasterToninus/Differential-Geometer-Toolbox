@@ -1,0 +1,112 @@
+%+--------------------------------------------------------------------------------------+
+%| CHEATSHEET: Multivectors version of Cartan calculus formulas
+%| Author: Antonio miti
+%| 
+%| 
+%+--------------------------------------------------------------------------------------+
+
+
+\documentclass[a4paper,12pt]{scrartcl}
+
+\newcommand{\g}{\ensuremath{\mathfrak{g}}}
+
+\usepackage{pdflscape}
+\usepackage{tabularx}
+\usepackage{array}
+\setlength{\extrarowheight}{6mm}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={185mm,277mm},
+ left=5mm,
+ right=5mm,
+ top=5mm,
+ bottom=5mm,
+ }
+ 
+\usepackage[subpreambles=true]{standalone}
+ 
+\usepackage{amssymb}
+\usepackage[leqno]{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+
+\usepackage[symbol]{footmisc}
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+
+	\renewcommand{\d}{\textrm{d}}
+	\providecommand{\codiff}{\delta}
+	\providecommand{\laplacian}{\Delta}
+	\providecommand{\Lie}{\mathcal{L}}%\pounds
+
+
+%https://tex.stackexchange.com/questions/48980/whole-page-table-with-tabularx
+
+\begin{document}
+  \begin{landscape}
+    \thispagestyle{empty}
+    \noindent
+    \paragraph{MULTIVECTORS CARTAN CALCULUS (WIP)}
+    	\mbox{}\\
+        $\quad$Suppose $M$ is a smooth manifold, $x^\mu$ a coordinate chart. Denote by $\Omega(M)$ the algebra of differential forms on $M$ and by $\mathfrak{X}(M)$ the $C^\infty(M)$-module of vector fields.  \\
+
+  \end{landscape}
+  
+  \section{Sketchy part}
+  	Suggested by arXiv:1610.05592v1
+	\begin{itemize}
+		\item
+			Let $M$ be a manifold and let $\Omega$ be a not necessarily closed differential form on $M$. For all $m \geq 1$ and all vector fields $v_1,\dots,v_m$ in the Lie algebra $\mathfrak X(M)$ we have:
+			\begin{align*} 
+			(-1)^{m}d \iota(v_{1} \wedge\cdots \wedge v_{m}) \Omega &= 
+			\iota(\partial(v_{1}\wedge\ldots\wedge v_{m}))\Omega
+			+\sum_{1=1}^{m} (-1)^{i} \iota( v_{1} \wedge \cdots
+			 \wedge \hat{v}_{i} \wedge \cdots \wedge {v}_{m})\mathcal{I}_{v_i}\Omega\\
+			&+ \iota( v_{1} \wedge \cdots
+			 \wedge {v}_{m}) d\Omega.
+			\end{align*}	
+		\item
+			Given a differential form $\Omega\in \Omega^\bullet(M)$ and a multi-vector field $Y\in \Gamma(\Lambda^m TM)$, the \emph{Lie derivative of $\Omega$ along $Y$} is defined as a graded commutator,
+			by $\mathcal{I}_Y\Omega:=d\iota_Y\Omega-(-1)^m\iota_Yd\Omega$.	
+		\item
+			This definition allows to combine the first and last term in the above formula into a Lie derivative.
+			Hence the above formula can be written 
+			$\mathcal{I}_{v_{1} \wedge \cdots
+			\wedge {v}_{m}}\Omega 
+			=(-1)^m[
+			\iota(\partial(v_{1}\wedge\ldots\wedge v_{m}))\Omega+\sum_{1=1}^{m} (-1)^{i} \iota( v_{1} \wedge \cdots
+			 \wedge \hat{v}_{i} \wedge \cdots \wedge {v}_{m})\mathcal{I}_{v_i}\Omega]$.	
+		
+		\item
+			$[y, p \wedge q ] = ?$
+		\item		
+			Let $p\in \Lambda^k\g$ and $q\in\Lambda^l\g$. Then
+			$$\partial(p\wedge q)=\partial(p)\wedge q+ (-1)^k p\wedge \partial(q)+(-1)^k[p,q],$$
+			where $[x_1\wedge...\wedge x_k,y_1\wedge ...\wedge y_l]=\sum (-1)^{i+j}[x_i,y_j]\wedge x_1 \wedge ...\wedge \hat x_i\wedge ...\wedge x_k \wedge y_1 \wedge ...\wedge \hat y_j\wedge ...\wedge y_l$. 
+			
+			Proof:\\
+			It is sufficient to prove the assertion for monomials
+			$p= x_1\wedge\ldots\wedge x_k$ and $q=x_{k+1}\wedge\ldots\wedge x_{k+l}$.
+			In that case $\partial(p\wedge q)$ is given by a 
+			sum over indices $i,j$ with ${1 \leq i < j \leq k+l}$. Splitting it into sums over ${ i < j \leq k}$, ${k< i < j }$ and $ i \leq k < j$ proves the assertion.
+		\item
+			The bracket $[\cdot,\cdot]:\Lambda^\bullet\mathfrak g\times \Lambda^\bullet\mathfrak g\to \Lambda^\bullet\mathfrak g$ defined above turns $\Lambda^\bullet\mathfrak g$ into a Gerstenhaber algebra.
+
+		\item
+			$$\iota_{a^{(k)}} \dot \iota_{b^{(p)}} = (-)^{k p} \iota_{b^{(p)}} \dot \iota_{a^{(k)}} $$
+	\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
