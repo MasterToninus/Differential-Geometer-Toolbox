@@ -8,8 +8,16 @@
 
 \documentclass[a4paper,12pt]{scrartcl}
 
+%RWZ
 \newcommand{\g}{\ensuremath{\mathfrak{g}}}
 
+%CFRZ
+\newcommand{\LX}{\mathfrak{X}^{\wedge {\bullet}}}
+\renewcommand{\L}{\mathcal{L}}
+\renewcommand{\deg}[1]{\left \lvert #1 \right \rvert}
+
+
+%
 \usepackage{pdflscape}
 \usepackage{tabularx}
 \usepackage{array}
@@ -30,6 +38,7 @@
 \usepackage[leqno]{amsmath}
 \usepackage{amsfonts}
 \usepackage{mathtools}
+\usepackage{hyperref}
 
 \usepackage[symbol]{footmisc}
 \renewcommand*{\thefootnote}{\fnsymbol{footnote}}
@@ -53,7 +62,7 @@
   \end{landscape}
   
   \section{Sketchy part}
-  	Suggested by arXiv:1610.05592v1
+  	Suggested by arXiv:1610.05592v1,  arXiv:1304.2051
 	\begin{itemize}
 		\item
 			Let $M$ be a manifold and let $\Omega$ be a not necessarily closed differential form on $M$. For all $m \geq 1$ and all vector fields $v_1,\dots,v_m$ in the Lie algebra $\mathfrak X(M)$ we have:
@@ -61,21 +70,21 @@
 			(-1)^{m}d \iota(v_{1} \wedge\cdots \wedge v_{m}) \Omega &= 
 			\iota(\partial(v_{1}\wedge\ldots\wedge v_{m}))\Omega
 			+\sum_{1=1}^{m} (-1)^{i} \iota( v_{1} \wedge \cdots
-			 \wedge \hat{v}_{i} \wedge \cdots \wedge {v}_{m})\mathcal{I}_{v_i}\Omega\\
+			 \wedge \hat{v}_{i} \wedge \cdots \wedge {v}_{m})\mathcal{L}_{v_i}\Omega\\
 			&+ \iota( v_{1} \wedge \cdots
 			 \wedge {v}_{m}) d\Omega.
 			\end{align*}	
 		\item
 			Given a differential form $\Omega\in \Omega^\bullet(M)$ and a multi-vector field $Y\in \Gamma(\Lambda^m TM)$, the \emph{Lie derivative of $\Omega$ along $Y$} is defined as a graded commutator,
-			by $\mathcal{I}_Y\Omega:=d\iota_Y\Omega-(-1)^m\iota_Yd\Omega$.	
+			by $\mathcal{L}_Y\Omega:=d\iota_Y\Omega-(-1)^m\iota_Yd\Omega$.	
 		\item
 			This definition allows to combine the first and last term in the above formula into a Lie derivative.
 			Hence the above formula can be written 
-			$\mathcal{I}_{v_{1} \wedge \cdots
+			$\mathcal{L}_{v_{1} \wedge \cdots
 			\wedge {v}_{m}}\Omega 
 			=(-1)^m[
 			\iota(\partial(v_{1}\wedge\ldots\wedge v_{m}))\Omega+\sum_{1=1}^{m} (-1)^{i} \iota( v_{1} \wedge \cdots
-			 \wedge \hat{v}_{i} \wedge \cdots \wedge {v}_{m})\mathcal{I}_{v_i}\Omega]$.	
+			 \wedge \hat{v}_{i} \wedge \cdots \wedge {v}_{m})\mathcal{L}_{v_i}\Omega]$.	
 		
 		\item
 			$[y, p \wedge q ] = ?$
@@ -94,6 +103,79 @@
 
 		\item
 			$$\iota_{a^{(k)}} \dot \iota_{b^{(p)}} = (-)^{k p} \iota_{b^{(p)}} \dot \iota_{a^{(k)}} $$
+			
+		\item
+			Multi-vector fields bracket ( Schouten–Nijenhuis bracket)
+			$$
+				[v_1 \wedge \cdots \wedge v_m , w_1 \wedge \cdots \wedge w_n] = 
+				\sum_{i,j}(-1)^{i+j}[v_i,w_j] \wedge v_1 \wedge \cdots \wedge \hat{v_{i}} \wedge \cdots \wedge v_m \wedge w_1 \wedge \cdots \wedge \hat{w_{j}} \wedge \cdots \wedge w_n
+			$$
+
+			$$			
+			[ f , v_1 \wedge \cdots \wedge v_m] = -\iota_{df}(v_1 \wedge \cdots v_m)
+			$$
+			
+			$(\mathfrak{X}^\bullet (M) , [\cdot,\cdot] )$ \href{https://en.wikipedia.org/wiki/Gerstenhaber_algebra}{Gerstenhaber algebra}.
+		
+		\item
+			take $v \in \mathfrak{X}, p \in \mathfrak{X}^k$ then
+			$$
+				\mathfrak{L}_v \iota_p \omega = \iota_{[v,p]} \omega + \iota_p \mathfrak{L}_v \omega
+			$$
+		
+		\item
+			Per fare schema di multicartan servono regole di commutazione con $p \in \mathfrak{X}^\bullet$:
+			$$ [ p,p'], \mathfrak{L}_p, \iota_p, d$$
+			
+		\item
+			$\partial \equiv \partial_k:  \Lambda^{k} {\mathfrak g} \to \Lambda^{k-1} {\mathfrak g}$  via
+$$
+\partial (\xi_1 \wedge \xi_2 \wedge \dots \wedge \xi_k) := \sum_{1\leq i< j \leq k} (-1)^{i+j}\, [\xi_i, \xi_j] \wedge \xi_1 \wedge \dots {\hat \xi}_i \wedge \dots \wedge {\hat \xi}_j \wedge \dots \xi_k
+$$
+(with $\hat{}$ denoting deletion as usual and with $\partial_0 = 0$; one has $\partial^2 = 0$). \par
+		\item
+		The \textbf{Schouten bracket}
+% $[\cdot,\cdot] \maps \LX(M) \times \LX(M) \to \LX(M)$ 
+% is a degree $-1$ Lie bracket which satisfies the graded Leibniz rule with respect to the
+% wedge product.
+of two decomposable multivector fields
+$u_{1} \wedge \cdots \wedge u_{m}, v_{1} \wedge \cdots \wedge v_{n}
+\in \LX(M)$ is
+\begin{multline} \label{Schouten}
+\left [ u_{1} \wedge \cdots \wedge u_{m}, v_{1} \wedge \cdots \wedge
+  v_{n} \right] 
+= \\\sum_{i=1}^{m} \sum_{j=1}^{n} (-1)^{i+j} [u_{i},v_{j}]
+\wedge u_{1} \wedge \cdots \wedge \hat{u}_{i} \wedge  \cdots \wedge
+u_{m}\\
+\quad \wedge v_{1} \wedge \cdots \wedge \hat{v}_{j} \wedge \cdots \wedge v_{n},
+\end{multline}
+where $[u_{i},v_{j}]$ is the usual Lie bracket of vector fields.
+
+The \textbf{interior product} of a decomposable
+multivector field $v_{1} \wedge \cdots \wedge v_{n}$ with $\alpha \in \Omega^{\bullet}(M)$ is
+\begin{equation} \label{interior}
+\iota(v_{1} \wedge \cdots \wedge v_{n}) \alpha = \iota_{v_{n}} \cdots
+\iota_{v_{1}} \alpha,
+\end{equation}
+where $\iota_{v_{i}} \alpha$ is the usual interior product of vector
+fields and differential forms. 
+% The interior product of an arbitrary
+% multivector field is obtained by extending by $\cinf(M)$-linearity. 
+
+The \textbf{Lie derivative} $\L_{v}$ of a differential form along a multivector field $v \in
+\LX(M)$ is the graded commutator of $d$ and $\iota(v)$:
+\begin{equation} \label{Lie}
+\L_{v} \alpha =  d \iota(v) \alpha - (-1)^{\deg{v}} \iota(v) d\alpha,
+\end{equation}
+where $\iota(v)$ is considered as a degree $-\deg{v}$ operator.
+
+The last identity we will need is for the graded commutator of
+the Lie derivative and the interior product. Given $u,v \in
+\LX(M)$, it follows from  \cite[Proposition A3]{Forger} that
+\begin{equation} \label{commutator}
+\iota([u,v]) \alpha = (-1)^{(\deg{u}-1)\deg{v}} \L_{u} \iota(v)  \alpha - \iota(v)\L_{u} \alpha.
+\end{equation}
+			
 	\end{itemize}
 
 
