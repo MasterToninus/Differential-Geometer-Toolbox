@@ -15,7 +15,8 @@
 \newcommand{\LX}{\mathfrak{X}^{\wedge {\bullet}}}
 \renewcommand{\L}{\mathcal{L}}
 \renewcommand{\deg}[1]{\left \lvert #1 \right \rvert}
-
+\newcommand{\ExtD}{\textrm{d}}
+\newcommand{\Lie}{\mathcal{L}}
 
 %
 \usepackage{pdflscape}
@@ -175,7 +176,17 @@ the Lie derivative and the interior product. Given $u,v \in
 \begin{equation} \label{commutator}
 \iota([u,v]) \alpha = (-1)^{(\deg{u}-1)\deg{v}} \L_{u} \iota(v)  \alpha - \iota(v)\L_{u} \alpha.
 \end{equation}
-			
+	
+	\item Prove that the following relations holds when $X,Y \in \mathfrak{X}^k(M)$
+				\begin{align}
+					\ExtD^2 &= 0 \label{cartfirst}\\
+					\ExtD \Lie_X - \Lie_X d &= 0 \\
+					\ExtD \iota_X + \iota_X d &= \Lie_X \label{magic}\\
+					\Lie_X \Lie_Y - \Lie_Y \Lie_X &= \Lie_{[X,Y]} \\
+					\Lie_X \iota_Y - \iota_Y \Lie_X &= \iota_{[X,Y]}\\
+					\iota_X \iota_Y + \iota_Y \iota_X &= 0 \label{cartlast}
+				\end{align}	
+	
 	\end{itemize}
 
 
