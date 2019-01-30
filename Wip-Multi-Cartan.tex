@@ -187,13 +187,23 @@ the Lie derivative and the interior product. Given $u,v \in
 					\iota_X \iota_Y + \iota_Y \iota_X &= 0 \label{cartlast}
 				\end{align}	
 	
+
+
+	\item Another useful formula
+		\begin{displaymath}
+			\ExtD \omega (X_0, \ldots, X_n) = 
+			\sum_i (-)^i X_i\left( \omega(X_0,\ldots,\hat{X_1},\ldots,X_n \right) +
+			\sum_{i < j} (-)^{(i+j)} \omega\left([X_i,X_j],X_0,\ldots,\hat{X_i},\ldots,\hat{X_j},\ldots, X_n \right)
+		\end{displaymath}
+		or
+		\begin{displaymath}
+		\iota_{X_0\wedge \ldots X_n} \ExtD \omega =
+		\sum_i (-)^i \Lie_{X_i} \iota_{X_0\wedge\ldots\wedge \hat{X_i}\wedge\ldots\wedge X_n} \omega
+		+ \iota_{\partial X_0 \wedge\ldots\wedge X_n} \omega		
+		\end{displaymath}
+
+
 	\end{itemize}
-
-
-
-
-
-
 
 
 
