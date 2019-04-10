@@ -33,7 +33,7 @@
  bottom=5mm,
  }
  
-\usepackage[subpreambles=true]{standalone}
+
  
 \usepackage{amssymb}
 \usepackage[leqno]{amsmath}
@@ -205,6 +205,81 @@ the Lie derivative and the interior product. Given $u,v \in
 
 
 	\end{itemize}
+	\subsection{ Properties of Multivector Fields and Generalized Lie Derivatives (ARXIV:1102.2835)}
+	quick account of multivector fields and their properties.  
+	We follow the exposition and the sign conventions for multivectors and Lie derivatives of (arXiv:math-ph/0407057).
+
+\paragraph{Multivector Fields.}
+
+Let $M$ be a manifold.  A \emph{ multivector field} of degree $k$ on $M$ is a section of the $k$-th exterior power $\bigwedge^k (TM)$.  We say that a $k$-multivector field $\Gamma$ is \emph{ decomposable} if it can be written as a wedge product of $k$ vector fields $X_1, \ldots, X_k$ on $M$:
+\[
+	\Gamma = X_1 \wedge \cdots \wedge X_k.
+\]
+We denote the space of all $k$-multivector fields on $M$ by $\mathfrak{X}^k(M)$.  The \emph{ Schouten-Nijenhuis bracket} is the unique $\mathbb{R}$-bilinear map 
+\[
+	[\cdot, \cdot] : \mathfrak{X}^k(M) \times \mathfrak{X}^l(M)
+		\rightarrow
+		\mathfrak{X}^{k + l - 1}(M)
+\]
+with the following properties: for multivector fields $\Gamma, \Gamma'$ and $\Gamma''$ of degree $k, l$ and $m$ respectively, we have that
+\begin{enumerate}
+\item The Schouten-Nijenhuis bracket vanishes on functions: for $f, g \in C^\infty(M)$, we have $[f, g] = 0$; 
+
+\item It is graded anticommutative: 
+\[
+	[\Gamma, \Gamma'] = - (-1)^{(k - 1)(l - 1)} [\Gamma', \Gamma];
+\]
+\item It coincides with the Lie bracket when restricted to vector fields; 
+\item It satisfies the graded Leibniz rule: 
+\[
+	[\Gamma, \Gamma' \wedge \Gamma''] 
+	= 
+	[\Gamma, \Gamma'] \wedge \Gamma'' 
+	+ (-1)^{(k-1)l} \Gamma' \wedge [\Gamma, \Gamma'']; 
+\]
+\item It satisfies the graded Jacobi identity:
+\[
+	(-1)^{(k-1)(m-1)} [\Gamma, [\Gamma', \Gamma'']] + 
+		\text{cyclic perm.} = 0.
+\]
+\end{enumerate}
+
+It follows that the set $\mathfrak{X}(M)$ of all multivector fields equipped with the Schouten-Nijenhuis bracket forms a \emph{ Gerstenhaber algebra} (see \cite{Ge1963}).
+
+\paragraph{The Lie Derivative.}
+
+  We define the \emph{ contraction} of a decomposable multi-vector field $\Gamma = X_1 \wedge \cdots \wedge X_k$ and a differential form $\alpha$ to be
+\[
+	\mathbf{i}_\Gamma \alpha = \mathbf{i}_{X_k} \ldots \mathbf{i}_{X_1} \alpha.
+\]
+This operation can then be extended to arbitrary, non-decomposable multi-vector fields by linearity.  The \emph{ Lie derivative} $\pounds_\Gamma \alpha$ of the form $\alpha$ along a multi-vector field $\Gamma$ of degree $k$ is defined by means of a generalization of Cartan's formula:
+\[
+	\pounds_\Gamma \alpha = \mathbf{d} \mathbf{i}_\Gamma
+		- (-1)^k \mathbf{i}_\Gamma \mathbf{d} \alpha, 
+\]
+where $k$ is the degree of $\Gamma$.  The Lie derivative satisfies the following useful properties:
+
+\paragraph{Prop.~A.3 in \cite{FoPaRo2005}}
+	For any two multi-vector fields $\Gamma$ and $\Gamma'$ of degree $k$ and $l$ respectively, and any differential form $\alpha$, we have 
+	\begin{gather}
+		\mathbf{d} \pounds_\Gamma \alpha = (-1)^{k - 1} \pounds_\Gamma \mathbf{d} \alpha \\[2ex]
+		%
+		\label{koszulid}
+		\mathbf{i}_{[\Gamma, \Gamma']} \alpha = (-1)^{(k - 1)l} 
+			\pounds_\Gamma \mathbf{i}_{\Gamma'} \alpha -
+			\mathbf{i}_{\Gamma'} \pounds_{\Gamma} \alpha \\[2ex]
+		%
+		\pounds_{[\Gamma, \Gamma']} \alpha = 
+			(-1)^{(k - 1)(l - 1)} \pounds_\Gamma \pounds_{\Gamma'} \alpha
+			- \pounds_{\Gamma'} \pounds_{\Gamma} \alpha \\[2ex]
+		%
+		\pounds_{\Gamma \wedge \Gamma'} \alpha = 
+			(-1)^l \mathbf{i}_{\Gamma'} \pounds_\Gamma \alpha 
+			+ \pounds_{\Gamma'} \mathbf{i}_\Gamma \alpha.
+	\end{gather}
+
+
+Throughout the paper, \eqref{koszulid} is referred to as the \emph{ Koszul identity}.
 
 
 
