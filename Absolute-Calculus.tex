@@ -37,7 +37,7 @@
   \begin{landscape}
     \thispagestyle{empty}
     \noindent
-    \paragraph{ABSOLUTE DIFFERENTIAL CALCULUS}
+    \paragraph{ABSOLUTE DIFFERENTIAL CALCULUS {\small(Calculus of tensors)}}
     	\mbox{}\\
         $\quad$Suppose $M$ is a smooth manifold, $x^\mu$ a coordinate chart. Denote by $\Omega(M)$ the algebra of differential forms on $M$ and by $\mathfrak{X}(M)$ the $C^\infty(M)$-module of vector fields.  \\
     \vspace{5mm}
@@ -45,7 +45,7 @@
       \hline
      	  & $f \in C^\infty(M)$ & $\ExtD x^\mu \in \Omega^1(M)$ & $\partial_\mu \in \mathfrak{X}(M)$ & $T_1 \otimes T_2$ & $\omega^{(k)} \wedge \beta$ \\
       \hline
-      	$\ExtD$ & $\left(\dfrac{\partial f }{\partial x^\nu} \right) \: \ExtD x^\nu$ & 0 & - & -  & $\left( \ExtD \omega \right) \wedge \beta + (-)^k \omega \wedge \left( \ExtD\beta \right) $\\
+      	$\ExtD$ & $\left(\dfrac{\partial f }{\partial x^\nu} \right) \: \ExtD x^\nu$ & 0 & n/a & n/a  & $\left( \ExtD \omega \right) \wedge \beta + (-)^k \omega \wedge \left( \ExtD\beta \right) $\\
 %
       	$\Lie_X$ & $X(f) = X^\nu \left(\dfrac{\partial f }{\partial x^\nu} \right)$ & $\Lie_X \ExtD x^\mu = \ExtD\left(X^\mu\right) =\left(\dfrac{\partial X^\mu }{\partial x^\nu} \right)  \ExtD x^\nu$ & $\Lie_X \partial_\mu = [X, \partial_\mu]$ & $\left(\Lie_X T_1\right) \otimes T_2 + T_1 \otimes \left(\Lie_X T_2 \right)$ & $\left( \Lie_X \omega \right) \wedge \beta + \omega \wedge \left(\Lie_X\beta \right)$ \\
 %
@@ -111,12 +111,12 @@
 		  		\nabla: \mathfrak{X}(M) \times \mathfrak{X}(M) &\longrightarrow \mathfrak{X}(M) \\
 		  				  												(X,Y) &\longmapsto \nabla_X Y		  	
 		  	\end{align*}
-			such that: % $\forall X,Y,Z \in \mathfrak{X}(M)$, $\forall a \in \Real$, $\forall f \in C^\infty(M)$:
+			such that: \hfill {\small ($\forall a \in \mathbb{R}, f \in C^\infty(M)$)}% $\forall X,Y,Z \in \mathfrak{X}(M)$, $\forall a \in \Real$, $\forall f \in C^\infty(M)$:
 		  	\begin{align}
 		  		\nabla_{(X+ a Z)} Y &= \nabla_X Y + a \nabla_Z Y \\
-		  		\nabla_{X} \left( Y+ a Z \right) &= \nabla_X Y + a \nabla_Y Z \\
+		  		\nabla_{X} \left( Y+ a Z \right) &= \nabla_X Y + a \nabla_X Z \\
 		  		\nabla_{f\, X} Y &= f \, \nabla_X Y \\
-		  		\nabla_{X}\left( f \, Y\right) &= \left(\nabla_X f \right)\, Y + f \, \left(\nabla_X Y \right)		
+		  		\nabla_{X}\left( f \, Y\right) &= \left(X( f ) \right)\, Y + f \, \left(\nabla_X Y \right)		
 		  	\end{align}
 		  }
 		}
@@ -141,7 +141,7 @@
 		  }
 		}	
 	\end{minipage}
-		\footnote[4]{$g:N \sim (y^A) \rightarrow M \sim (x^\mu) $}
-		\footnote[3]{Caveat: pull-back is well defined only on covariant tensors. Otherwise $g$ has to be a diffeomorphism.}
+		\footnote[4]{$g: N \to M$,  $(y^A) \mapsto (x^\mu) $}
+		\footnote[3]{Caveat: pull-back is well defined on arbitrary tensors when  $g$ is a diffeomorphism. Otherwise is only defined on purely covariant tensors.}
   \end{landscape}
 \end{document}
